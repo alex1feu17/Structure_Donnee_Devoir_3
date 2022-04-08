@@ -1,7 +1,10 @@
+package com.example;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String args[])
     {
-        int swValue;
         System.out.println("|                   MENU SELECTION                             |");
         System.out.println("|        1. Lecture des données à partir d’un fichier.         |");
         System.out.println("|        2. Inscription de l'étudiant                          |");
@@ -10,12 +13,16 @@ public class Main {
         System.out.println("|        5. Sauvegarde des données dans un fichier.            |");
         System.out.println("|        6. Quitter                                            |");
 
-        swValue = Keyin.inInt(" Select option: ");
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
 
-        switch (swValue) {
+        switch (choice) {
             case 1:
                 //Lecture des données à partir d’un fichier.
-
+                String fichier_etudiant = "C:\\Users\\Alexy Duval\\IdeaProjects\\Structure_Donnee_Devoir3\\out\\production\\Structure_Donnee_Devoir3\\File\\Etudiants.txt";
+                String fichier_cours= "C:\\Users\\Alexy Duval\\IdeaProjects\\Structure_Donnee_Devoir3\\out\\production\\Structure_Donnee_Devoir3\\File\\Cours.txt";
+                String fichier_inscription= "C:\\Users\\Alexy Duval\\IdeaProjects\\Structure_Donnee_Devoir3\\out\\production\\Structure_Donnee_Devoir3\\File\\Inscriptions.txt";
+                Programme.lireFichier(fichier_etudiant,fichier_cours,fichier_inscription);
                 break;
             case 2:
                 //Inscription de l'étudiant.
