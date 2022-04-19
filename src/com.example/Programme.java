@@ -75,6 +75,7 @@ public class Programme {
             int i;
             int compteur = 0;
             FileReader fr = new FileReader(Fl_Cours);
+
             while ((i = fr.read()) != -1)
             {
                 if((char)i!='\n') {
@@ -104,9 +105,15 @@ public class Programme {
                     }
                     else
                     {
+                        /*if ((char)i + 1 >= '0' && (char)i + 1 <= '9' )
+                        {
+                            compteur ++;
+                            value="";
+                        }*/
 
                         compteur ++;
                         value="";
+
                     }
                 }
                 else
