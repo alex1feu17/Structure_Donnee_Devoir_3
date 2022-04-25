@@ -82,7 +82,11 @@ public class Programme {
 
                     if((char)i!='\t')
                     {
-                        value = value+(char)i;
+                        if((char)i!=';')
+                        {
+                            value = value+(char)i;
+                        }
+
 
                         if(compteur==0)
                             cours.setSigleCours(value);
@@ -94,25 +98,18 @@ public class Programme {
                         {
                             if((char)i==';')
                             {
+                                compteur = 3 ;
                                 list_prerequis.add(value);
-                                value="";
+                                value = "";
                             }
-
                         }
-
-
 
                     }
                     else
                     {
-                        /*if ((char)i + 1 >= '0' && (char)i + 1 <= '9' )
-                        {
-                            compteur ++;
-                            value="";
-                        }*/
-
                         compteur ++;
                         value="";
+
 
                     }
                 }
@@ -124,6 +121,67 @@ public class Programme {
                     value="";
                     cours = new Cours();
 
+                }
+
+            }
+
+        }
+        catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        //Inscription
+        value="";
+        try(BufferedReader br = new BufferedReader(new FileReader(Fl_Inscription)))
+        {
+            int i;
+            int compteur = 0;
+            FileReader fr = new FileReader(Fl_Inscription);
+
+            while ((i = fr.read()) != -1)
+            {
+                if((char)i!='\n') {
+
+                    if((char)i!='\t')
+                    {
+
+                        if(compteur==0)
+                            for (int j = 0;j<list_cours.size(); j++)
+                            {
+                                if(value == list_cours.get(i).getSigleCours())
+                                {
+                                    int nombre = list_cours.get(i).getNb_etudiant();
+
+                                    if(nombre == list_cours.get(i).getMax_etudiant())
+                                        System.out.println("On ne peux pas ajouter l'étudiant, car le cours est plein");
+                                    else
+                                        list_cours.get(i).setNb_etudiant(nombre+1);
+
+                                }
+                            }
+                        if(compteur==1)
+                            for (int j = 0;j<list_etudiant.size(); j++)
+                            {
+                                if(value == list_etudiant.get(i).getCodePermanent())
+                                {
+                                    int nombre = list_etudiant.get(i).getNb_cours();
+                                    list_etudiant.get(i).setNb_cours(nombre+1);
+
+                                }
+                            }
+
+                    }
+                    else
+                    {
+                        compteur ++;
+                        value="";
+                    }
+                }
+                else
+                {
+                    compteur=0;
+                    value="";
                 }
 
             }
