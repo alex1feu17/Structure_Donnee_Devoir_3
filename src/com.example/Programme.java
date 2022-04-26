@@ -7,6 +7,11 @@ import java.util.ArrayList;
 
 public class Programme {
     public String noProgramme;
+    private ArrayList<Cours> list_cours;
+
+    public ArrayList<Cours> getList_cours() {return list_cours;}
+
+    public void setList_cours(ArrayList<Cours> list_cours) {this.list_cours = list_cours;}
 
     public static void lireFichier(String Fl_Etudiant, String Fl_Cours, String Fl_Inscription) {
 
@@ -130,6 +135,8 @@ public class Programme {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        Programme programme = new Programme();
+        programme.setList_cours(list_cours);
 
         //Inscription
         value="";
@@ -192,4 +199,5 @@ public class Programme {
             e.printStackTrace();
         }
     }
+
 }

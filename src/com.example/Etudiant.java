@@ -41,6 +41,8 @@ public class Etudiant {
       return noProgramme;
    }
 
+   public ArrayList<Cours> getCours_inscrit() {return cours_inscrit;}
+
 
    public void setCodePermanent(String codePermanent) {
       this.codePermanent = codePermanent;
@@ -69,4 +71,6 @@ public class Etudiant {
    public void setNoProgramme(String noProgramme) {
       this.noProgramme = noProgramme;
    }
+
+   public void setCours_inscrit(ArrayList<Cours> cours_inscrit) {this.cours_inscrit = cours_inscrit;}
 }

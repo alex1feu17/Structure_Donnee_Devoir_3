@@ -11,6 +11,7 @@ public class Cours {
     private ArrayList<String> prerequis;
     private ArrayList<Etudiant> etudiant_inscrit;
 
+
     public String getSigleCours() {
         return sigleCours;
     }
@@ -31,10 +32,13 @@ public class Cours {
         return prerequis;
     }
 
+    public ArrayList<Etudiant> getEtudiant_inscrit() {return etudiant_inscrit;}
 
-    public void setSigleCours(String sigleCours) {
-        this.sigleCours = sigleCours;
-    }
+
+
+
+
+    public void setSigleCours(String sigleCours) {this.sigleCours = sigleCours;}
 
     public void setNom(String nom) {
         this.nom = nom;
@@ -51,4 +55,8 @@ public class Cours {
     public void setPrerequis(ArrayList<String> prerequis) {
         this.prerequis = prerequis;
     }
+
+    public void setEtudiant_inscrit(ArrayList<Etudiant> etudiant_inscrit) {this.etudiant_inscrit = etudiant_inscrit;}
+
+
 }
